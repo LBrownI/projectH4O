@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Contenido principal */
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Lista de empleados */
+.employee-list {
+  flex: 3;
+}
+
+.employee-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.employee-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Filtros */
+.filters {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+  display: block;
+  margin-top: 10px;
+}
+
+.filters select,
+.filters button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filters button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #45a049;
+}
