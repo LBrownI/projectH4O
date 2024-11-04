@@ -63,15 +63,6 @@
             </div>
         </div>
     </div>
-    <div class="bg-green-700 bottom-0 fixed overflow-hidden w-full">
-        <div class="flex justify-center items-center space-x-4 py-1">
-            <img src="{{ url_for('static', filename='icons/home.svg') }}" alt="book" class="size-10">
-            <img src="{{ url_for('static', filename='icons/news.svg') }}" alt="book" class="size-10">
-            <img src="{{ url_for('static', filename='icons/plus.svg') }}" alt="book" class="size-10">
-            <img src="{{ url_for('static', filename='icons/book.svg') }}" alt="book" class="size-10">
-            <img src="{{ url_for('static', filename='icons/user.svg') }}" alt="book" class="size-10">
-        </div>
-    </div>
+    {%include 'bottomNavigationMenu.html'%}
 </body>
-
 </html>
