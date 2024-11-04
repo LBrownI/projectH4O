@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <title>Home</title>
+</head>
+
+<body bgcolor="#f4f4f4">
+    <h1 class="justify-center flex text-3xl">
+        Welcome, user!
+        <img src="{{ url_for('static', filename='images/minecraft-rose.png') }}" alt="logo" class="size-10">
+    </h1>
+    <div class="flex justify-center my-5">
+        <a href="https://www.google.com/">
+            <button class="p-6 max-w-sm mx-1 bg-white rounded-xl shadow-lg flex items-center space-x-4">
+                <div class="shrink-0">
+                    <img class="size-20" src="{{ url_for('static', filename='images/daily_plant.jpg') }}"
+                        alt="ChitChat Logo">
+                </div>
+                <div>
+                    <div class="text-xl font-medium text-black">Whispering Windflower</div>
+                    <p class="text-slate-500 text-left">A delicate, ethereal flower found in ancient forests, its petals shimmering with iridescent hues. Legends say it whispers secrets to those who listen closely.</p>
+                </div>
+            </button>
+        </a>
+    </div>
+    <div class="w-full justify-center flex">
+        <div class="p-6 max-w-sm mx-1 bg-white flex items-center space-x-4">
+            <div class="bg-green-700 w-full h-full p-3 items-center justify-center flex gap-6 rounded-sm">
+                <a href="https://www.google.com/" class="group">
+                    <div class="bg-white max-w-32 p-1 rounded-sm relative">
+                        <div class="font-light text-lg mb-2">Verdant Haven</div> <!-- Shop 1 title remains here -->
+                        <img src="{{ url_for('static', filename='images/plant_shop_1.jpg') }}" alt="plant1"
+                            class="w-32 relative z-0 rounded-sm">
+                        <!-- Hover gradient and description -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="font-medium text-sm text-gray-800 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            Plant shop with unique plants.
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.google.com/" class="group">
+                    <div class="bg-white max-w-32 p-1 rounded-sm relative">
+                        <div class="font-light text-lg mb-2">Greenery Oasis</div> <!-- Shop 1 title remains here -->
+                        <img src="{{ url_for('static', filename='images/plant_shop_2.jpg') }}" alt="plant1"
+                            class="w-32 relative z-0 rounded-sm">
+                        <!-- Hover gradient and description -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="font-medium text-sm text-gray-800 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            Peaceful plant haven.
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-green-700 bottom-0 fixed overflow-hidden w-full">
+        <div class="flex justify-center items-center space-x-4 py-1">
+            <img src="{{ url_for('static', filename='icons/home.svg') }}" alt="book" class="size-10">
+            <img src="{{ url_for('static', filename='icons/news.svg') }}" alt="book" class="size-10">
+            <img src="{{ url_for('static', filename='icons/plus.svg') }}" alt="book" class="size-10">
+            <img src="{{ url_for('static', filename='icons/book.svg') }}" alt="book" class="size-10">
+            <img src="{{ url_for('static', filename='icons/user.svg') }}" alt="book" class="size-10">
+        </div>
+    </div>
+</body>
+
+</html>
