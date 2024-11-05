@@ -12,6 +12,14 @@ def index():
 def home():
     return render_template('home.html')
 
+@app.route("/news")
+def news():
+    return render_template('news.html')
+
+@app.route("/wiki")
+def wiki():
+    return render_template('wiki.html')
+
 @app.route("/user")
 def user():
     return render_template('user.html')
