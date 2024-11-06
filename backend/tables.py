@@ -40,9 +40,9 @@ class Plant(Base):
     genero = Column(String(50))
     especie = Column(String(50))
 
-    descripcion = relationship('Descripcion', back_populates='planta', uselist=False)
-    cuidados = relationship('Cuidados', back_populates='planta')
-    enfermedades = relationship('Enfermedades', back_populates='planta')
+    descriptions = relationship('Description', back_populates='plants', uselist=False)
+    cares = relationship('PlantCare', back_populates='plants')
+    plant_diseases = relationship('Enfermedades', back_populates='plants')
 
 
 class PlantType(Base):
@@ -51,7 +51,7 @@ class PlantType(Base):
     nombre_tipo = Column(String(100), nullable=False)
     descripcion = Column(Text)
 
-    descripciones = relationship('Descripcion', back_populates='tipo')
+    descriptions = relationship('Description', back_populates='types')
 
 
 class PlantDescription(Base):
@@ -63,8 +63,8 @@ class PlantDescription(Base):
     comestible = Column(Boolean)
     tipo_id = Column(Integer, ForeignKey('tipo.id', ondelete='SET NULL'))
 
-    planta = relationship('Planta', back_populates='descripcion')
-    tipo = relationship('Tipo', back_populates='descripciones')
+    plants = relationship('Plant', back_populates='descriptions')
+    types = relationship('Type', back_populates='descriptions')
 
 
 class PlantCare(Base):
@@ -86,7 +86,7 @@ class PlantCare(Base):
     estacion_siembra = Column(String(50))
     estacion_recoleccion = Column(String(50))
 
-    planta = relationship('Planta', back_populates='cuidados')
+    plants = relationship('Plant', back_populates='cares')
 
 
 class PlantDisease(Base):
@@ -99,6 +99,6 @@ class PlantDisease(Base):
     tratamiento = Column(Text)
     prevencion = Column(Text)
 
-    planta = relationship('Planta', back_populates='enfermedades')
+    plants = relationship('Plant', back_populates='plant_diseases')
 
 Base.metadata.create_all(engine)
