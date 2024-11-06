@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Wiki</title>
 </head>
 <body>
     <h1 class="justify-center flex text-3xl">
         Wiki
     </h1>
+    <div class="flex justify-center mt-4">
+        <input type="text" id="search" name="search" placeholder="Search..." class="border rounded p-2 w-1/2">
+        <button type="button" class="ml-2 p-2 bg-green-700 text-white rounded"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="flex justify-center my-5">
+        <a href="https://www.google.com/">
+            <button class="p-6 max-w-sm mx-1 bg-white rounded-xl shadow-lg flex items-center space-x-4">
+                <div class="shrink-0">
+                    <img class="size-20" src="{{ url_for('static', filename='images/daily_plant.jpg') }}"
+                        alt="ChitChat Logo">
+                </div>
+                <div>
+                    <div class="text-xl font-medium text-black">Whispering Windflower</div>
+                    <p class="text-slate-500 text-left">A delicate, ethereal flower found in ancient forests, its petals shimmering with iridescent hues. Legends say it whispers secrets to those who listen closely.</p>
+                </div>
+            </button>
+        </a>
+    </div>
+    <div class="flex justify-center my-5">
+        <a href="https://www.google.com/">
+            <button class="p-6 max-w-sm mx-1 bg-white rounded-xl shadow-lg flex items-center space-x-4">
+                <div class="shrink-0">
+                    <img class="size-20" src="{{ url_for('static', filename='images/daily_plant.jpg') }}"
+                        alt="ChitChat Logo">
+                </div>
+                <div>
+                    <div class="text-xl font-medium text-black">Whispering Windflower</div>
+                    <p class="text-slate-500 text-left">A delicate, ethereal flower found in ancient forests, its petals shimmering with iridescent hues. Legends say it whispers secrets to those who listen closely.</p>
+                </div>
+            </button>
+        </a>
+    </div>
+    {%include 'bottomNavigationMenu.html'%}
 </body>
 </html>
