@@ -20,6 +20,10 @@ def news():
 def wiki():
     return render_template('wiki.html')
 
+@app.route("/ar")
+def ar():
+    return render_template('ar.html')
+
 @app.route("/user")
 def user():
     return render_template('user.html')
