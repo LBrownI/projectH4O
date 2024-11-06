@@ -46,7 +46,7 @@ class Plant(Base):
 
 
 class PlantType(Base):
-    __tablename__ = 'Type'
+    __tablename__ = 'PlantType'
     id = Column(Integer, primary_key=True)
     nombre_tipo = Column(String(100), nullable=False)
     descripcion = Column(Text)
@@ -55,7 +55,7 @@ class PlantType(Base):
 
 
 class PlantDescription(Base):
-    __tablename__ = 'Description'
+    __tablename__ = 'PlantDescription'
     id = Column(Integer, primary_key=True)
     planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
     origen_nativo = Column(String(255))
