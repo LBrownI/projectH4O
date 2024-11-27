@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4">
+        <h2 class="text-3xl font-bold text-center mb-6">Plant Information</h2>
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <p class="mb-4"><strong>Common Names:</strong> <span class="text-green-600">{{ data.common_names }}</span></p>
+            <p class="mb-4"><strong>Scientific Name:</strong> <span class="text-green-600">{{ data.scientific_name }}</span></p>
+            <p class="mb-4"><strong>Scientific Name Authorship:</strong> <span class="text-green-600">{{ data.scientific_name_authorship }}</span></p>
+            <p class="mb-4"><strong>Family:</strong> <span class="text-green-600">{{ data.family }}</span></p>
+            <p class="mb-4"><strong>Genus:</strong> <span class="text-green-600">{{ data.genus }}</span></p>
+            <p class="mb-4"><strong>GBIF ID:</strong> <span class="text-green-600">{{ data.gbif_id }}</span></p>
+            <p class="mb-4"><strong>POWO ID:</strong> <span class="text-green-600">{{ data.powo_id }}</span></p>
+            <p class="mb-4"><strong>Score:</strong> <span class="text-green-600">{{ data.score }}</span></p>
+        </div>
+        <div class="text-center mt-6">
+            <a href="{{ url_for('scanplant') }}" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-950">Scan another plant</a>
+        </div>
+    </div>
+</body>
+</html>

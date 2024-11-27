@@ -11,6 +11,9 @@ instance/*
 .webassets-cache
 .env
 
+# API
+API_KEY.key
+
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
