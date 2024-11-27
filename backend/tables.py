@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship, declarative_base
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Load the MySQL root password from environment variables
-mysql_root_password = os.getenv('MYSQL_H4O_PASSWORD', 'default_root_pass')  # Fallback in case the env variable isn't set
+mysql_root_password = os.getenv('MYSQL_ROOT_PASSWORD', 'default_root_pass')  # Fallback in case the env variable isn't set
 # You can set it up by doing: export MYSQL_ROOT_PASSWORD=your_secure_password
 
 config = {
@@ -34,9 +34,8 @@ class Plant(Base):
     orden = Column(String(50))
     familia = Column(String(50))
 
-    descriptions = relationship('Description', back_populates='plants', uselist=False)
+    descriptions = relationship('PlantDescription', back_populates='plants', uselist=False)
     cares = relationship('PlantCare', back_populates='plants')
-    plant_diseases = relationship('Enfermedades', back_populates='plants')
 
 
 class PlantType(Base):
@@ -45,25 +44,25 @@ class PlantType(Base):
     habito = Column(String(100), nullable=False)
     descripcion = Column(Text)
 
-    descriptions = relationship('Description', back_populates='types')
+    descriptions = relationship('PlantDescription', back_populates='types')
 
 
 class PlantDescription(Base):
     __tablename__ = 'PlantDescription'
     id = Column(Integer, primary_key=True)
-    planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
+    planta_id = Column(Integer, ForeignKey('Plant.id', ondelete='CASCADE'))  # Corrected to Plant.id
     origen_nativo = Column(String(255))
     descripcion = Column(Text)
-    tipo_id = Column(Integer, ForeignKey('tipo.id', ondelete='SET NULL'))
+    tipo_id = Column(Integer, ForeignKey('PlantType.id', ondelete='SET NULL'))  # Corrected to PlantType.id
 
     plants = relationship('Plant', back_populates='descriptions')
-    types = relationship('Type', back_populates='descriptions')
+    types = relationship('PlantType', back_populates='descriptions')  # Corrected to PlantType
 
 
 class PlantCare(Base):
     __tablename__ = 'PlantCare'
     id = Column(Integer, primary_key=True)
-    planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
+    planta_id = Column(Integer, ForeignKey('Plant.id', ondelete='CASCADE'))  # Corrected to Plant.id
     temp_ideal = Column(String(20))
     luz = Column(String(50))
     humedad = Column(String(20))
@@ -89,4 +88,6 @@ class PlantDisease(Base):
     tratamiento = Column(Text)
     prevencion = Column(Text)
 
+
 Base.metadata.create_all(engine)
+
