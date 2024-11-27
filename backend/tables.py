@@ -31,14 +31,8 @@ class Plant(Base):
     reino = Column(String(50))
     division = Column(String(50))
     clase = Column(String(50))
-    subclase = Column(String(50))
     orden = Column(String(50))
     familia = Column(String(50))
-    subfamilia = Column(String(50))
-    tribu = Column(String(50))
-    subtribu = Column(String(50))
-    genero = Column(String(50))
-    especie = Column(String(50))
 
     descriptions = relationship('Description', back_populates='plants', uselist=False)
     cares = relationship('PlantCare', back_populates='plants')
@@ -48,7 +42,7 @@ class Plant(Base):
 class PlantType(Base):
     __tablename__ = 'PlantType'
     id = Column(Integer, primary_key=True)
-    nombre_tipo = Column(String(100), nullable=False)
+    habito = Column(String(100), nullable=False)
     descripcion = Column(Text)
 
     descriptions = relationship('Description', back_populates='types')
@@ -60,7 +54,6 @@ class PlantDescription(Base):
     planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
     origen_nativo = Column(String(255))
     descripcion = Column(Text)
-    comestible = Column(Boolean)
     tipo_id = Column(Integer, ForeignKey('tipo.id', ondelete='SET NULL'))
 
     plants = relationship('Plant', back_populates='descriptions')
@@ -71,18 +64,16 @@ class PlantCare(Base):
     __tablename__ = 'PlantCare'
     id = Column(Integer, primary_key=True)
     planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
-    temperatura_ideal = Column(String(20))
+    temp_ideal = Column(String(20))
     luz = Column(String(50))
     humedad = Column(String(20))
     riego = Column(String(255))
-    sustrato = Column(String(255))
+    ph = Column(String(255))
     abonado = Column(Text)
     tiempo_crecimiento = Column(String(50))
     tipo_tierra = Column(String(255))
     plantacion = Column(String(50))
-    repicado = Column(String(50))
     transplante = Column(String(50))
-    rusticidad = Column(String(255))
     estacion_siembra = Column(String(50))
     estacion_recoleccion = Column(String(50))
 
@@ -92,13 +83,10 @@ class PlantCare(Base):
 class PlantDisease(Base):
     __tablename__ = 'PlantDisease'
     id = Column(Integer, primary_key=True)
-    planta_id = Column(Integer, ForeignKey('planta.id', ondelete='CASCADE'))
     nombre = Column(String(100))
     descripcion = Column(Text)
     sintomas = Column(Text)
     tratamiento = Column(Text)
     prevencion = Column(Text)
-
-    plants = relationship('Plant', back_populates='plant_diseases')
 
 Base.metadata.create_all(engine)
