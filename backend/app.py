@@ -22,10 +22,18 @@ def news():
 
 @app.route('/wiki')
 def wiki():
-    # Get all plants from the database
-    plants = session.query(Plant).all()
+    search_query = request.args.get('search')  # Get the search query from the URL
     
-    # Render the template with the plants data
+    if search_query:
+        # Filter plants by common or scientific name, case insensitive
+        plants = session.query(Plant).filter(
+            (Plant.nombre_comun.ilike(f'%{search_query}%')) | 
+            (Plant.nombre_cientifico.ilike(f'%{search_query}%'))
+        ).all()
+    else:
+        # If no search query, fetch all plants
+        plants = session.query(Plant).all()
+    
     return render_template('wiki.html', plants=plants)
 
 @app.route('/plant/<int:plant_id>')
