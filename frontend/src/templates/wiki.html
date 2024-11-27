@@ -29,9 +29,39 @@
         {% for plant in plants %}
         <div class="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-200 w-full">
             <a href="{{ url_for('plant_detail', plant_id=plant.id) }}" class="text-lg font-semibold text-green-700 hover:text-green-900">
-                <div class="text-center">
-                    <div class="text-xl">{{ plant.nombre_comun }}</div>
-                    <div class="text-sm text-gray-600 mt-1">{{ plant.nombre_cientifico }}</div>
+                <div class="flex items-center space-x-4">
+                <!-- Image Section with smaller size -->
+                {% if plant.id == 1 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 01.jpeg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 2 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 02.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 3 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 03.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 4 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 04.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 5 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 05.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 6 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 06.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 7 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 07.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 8 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 08.jfif') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 9 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 09.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 10 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 10.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% elif plant.id == 11 %}
+                    <img src="{{ url_for('static', filename='images/PlantWithID - 11.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/daily_plant.jpg') }}" alt="{{ plant.nombre_comun }}" class="w-12 h-12 rounded-full">
+                {% endif %}
+                    
+                    <!-- Plant Names Section -->
+                    <div>
+                        <div class="text-xl">{{ plant.nombre_comun }}</div>
+                        <div class="text-sm text-gray-600 mt-1">{{ plant.nombre_cientifico }}</div>
+                    </div>
                 </div>
             </a>
         </div>
